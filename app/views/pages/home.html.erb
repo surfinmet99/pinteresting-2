@@ -1,9 +1,19 @@
 <div class="jumbotron">
 	<h1>Veterans Helping Hands</h1>
-	<p>Click here to <%= link_to "Do your part!", "#", class: "btn btn-success btn-lg"  %>
+	
+	<% if user_signed_in? %>
+		<div class="push-left">
+			Thanks for your help
+		</div>
+	<% else %>
 
-		<%= render 'layouts/carousel' %>
-	</p>
+		<p>Click here to 
+			<%= link_to "Do your part!", new_user_registration_path, class: "btn btn-success btn-lg"  %>
+		<% end %>
+			<%= render 'layouts/carousel' %>
+		</p>
+	
+
 	<div class="text-center">
 		Three Ways to Give
 	</div>
